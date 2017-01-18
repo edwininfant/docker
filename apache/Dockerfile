@@ -1,4 +1,4 @@
-FROM  tutum/apache-php
+FROM  php:7.1.0-apache
 
 ENV TERM=xterm
 
