@@ -1,0 +1,18 @@
+version: '2'
+services:
+  apache:
+  #  image: 'php:7.1.0-apache'
+   # image: 'tutum/apache-php'
+    build:
+      context: './apache'
+      dockerfile: 'Dockerfile'
+    container_name: 'apache'
+    ports:
+     - '80:80'
+    volumes:
+      - '/home/aston/Documents/docker-projects/html/:/var/www/html'
+      - '/home/aston/Documents/docker-projects/apache/test.conf:/etc/apache2/sites-available/000-default.apache'
+    restart: 'always'
+    working_dir: '/var/www/html'
+
+#docker run -ti -p 80:80 -v /home/aston/Documents/docker-projects/www/html/:/var/www/html --name apache --rm php:7.1.0-apache bash
